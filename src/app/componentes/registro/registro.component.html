@@ -1,0 +1,46 @@
+
+
+<div class = "card mx-auto">
+    <div class="card-header bg-secondary text-center">
+      <h5 style="color: rgb(26, 22, 22);" >Crear Cuenta</h5>
+    </div>
+    
+    <form  id="form" action="/cargar-articulo">
+        <div class="card-body">
+            <div class="entrada mb-3">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <input type="text" class="form-control" id="exampleInputtext"placeholder="Nombre completo">
+              </div>
+              <div class="entrada mb-3">
+                <i class="fa fa-circle" aria-hidden="true"></i>
+                <input type="text" class="form-control" id="exampleInputtext"placeholder="Número de control">
+              </div>
+        <div class="entrada mb-3 mt-3" >
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="correo electronico">
+          
+        </div>
+        <div class="entrada mb-3">
+          <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+          <input type="password" class="form-control" id="pasw1"placeholder="password">
+        </div>
+        <div class="entrada mb-3">
+            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+            <input type="password" class="form-control" id="pasw2"placeholder=" confirm password">
+          </div>
+        <div class="mb-3 form-check">
+          
+         
+          <label class="form-check-label" for="exampleCheck1">
+            Al registrarse, aceptas nuestras condiciones de uso y políticas de privacidad. 
+          </label>
+            <p style="display: inline-block;">Mostrar política</p>
+            <input type="checkbox" class="form-check-input" id="chk-politica">
+            <p id="ocultar">Politica de uso...</p>
+         
+        </div>
+        <button type="submit" class="btn btn-secondary "onclick="alert('Registro completo');"routerLink="/login" style="color: black;">Registrarme</button>
+       
+    </div>
+      </form>
+    </div>

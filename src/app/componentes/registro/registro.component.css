@@ -1,0 +1,30 @@
+.entrada{
+    position: relative; 
+    
+}
+
+i{
+    position: absolute;
+    left: 15px;
+  top: 10px;
+}
+
+.form-control {
+    padding-left:40px ;
+}
+.card{ 
+    padding: 40px;
+    width: 400px;
+   padding: auto;
+   margin-top :40px ;
+
+}
+button{
+    width: 100%;
+}
+#ocultar{
+    display: none;
+}
+#chk-politica:checked~#ocultar{
+    display: block;
+}

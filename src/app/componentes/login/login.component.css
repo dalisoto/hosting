@@ -1,0 +1,28 @@
+.entrada{
+    position: relative; 
+    
+}
+
+i{
+    position: absolute;
+    left: 15px;
+  top: 10px;
+}
+
+.form-control {
+    padding-left:40px ;
+}
+.card{ 
+    padding: 40px;
+    width: 400px;
+   padding: auto;
+ 
+
+}
+button{
+    width: 100%;
+}
+body{
+    background-repeat: no repeat;
+    background-position: center;
+}

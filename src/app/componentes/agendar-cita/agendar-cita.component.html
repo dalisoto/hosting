@@ -1,0 +1,77 @@
+<body >
+
+    <div class = "card mx-auto">
+      <div class="card-header text-center">
+        <h5 style="color: rgb(37, 33, 33);" >Solicitud de cita</h5>
+      </div>
+      
+      <form  action="/cargar-articulo">
+          <div class="card-body">
+            <div class="entrada mb-3">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <input type="text" class="form-control" id="name"placeholder="Nombre">
+                </div>
+                <div class="entrada mb-3">
+                  <i class="fa fa-id-card" aria-hidden="true"></i>
+                  <input type="id" class="form-control" id="control"placeholder="Número de control">
+                </div>
+              <div class="entrada mb-3 mt-3">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              <select class="form-select" aria-label="Default select example" id="dTutoria">
+                  <option selected>Día de Tutorías</option> 
+                  <option value="1">Lunes</option>
+                  <option value="2">Martes</option>
+                  <option value="3">Miercoles</option>
+                  <option value="4">Jueves</option>
+                  <option value="5">Viernes</option>
+                </select>
+               </div>
+    
+               <div class="entrada mb-3 mt-3">
+                <i class="fa fa-hourglass" aria-hidden="true"></i>
+              <select class="form-select" aria-label="Default select example" id="hTutoria">
+                  <option selected>Seleccione Hora de tutoria</option> 
+                  <option value="1">8:00-8:50</option>
+                  <option value="2">9:00-9:50</option>
+                  <option value="3">10:00-10:50</option>
+                  <option value="4">11:00-11:50</option>
+                  <option value="5">12:20-13:10</option>
+                  <option value="6">13:15-14:05</option>
+                  <option value="7">14:10-15:00</option>
+                  <option value="8">15:10-16:00</option>
+                </select>
+               </div>
+    
+    
+               
+               
+          <button type="submit" class="btn btn-dark"onclick="alert('Registro completo');"routerLink="/mis-citas">Enviar Solicitud</button>
+          <p></p>
+          <button type="submit" class="btn btn-danger"onclick="alert('Solicitud Cancelada');"routerLink="/home">Cancelar Solicitud</button>
+      </div>
+        </form>
+    </div>
+
+    <table class="table table-dark table-striped" style="margin: 20px 20px;">
+        <thead>
+          <tr>
+            <th scope="col">Número de Cita</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Nombre(s)</th>
+            <th scope="col">Hora de Cita</th>
+            <th scope="col">Fecha de Cita</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Prado Salazar</td>
+            <td>Cristian Ismael</td>
+            <td>14:00</td>
+            <td>21/06/23</td>
+          </tr>
+        </tbody>
+      </table>
+    
+
+    </body>
