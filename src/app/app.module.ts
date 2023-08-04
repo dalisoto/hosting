@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { HomeUsuarioComponent } from './componentes/home-usuario/home-usuario.component';
-import { AgendarCitaComponent } from './componentes/agendar-cita/agendar-cita.component';
+import { CitaComponent } from './componentes/agendar-cita/agendar-cita.component';
 import { HomePersonalComponent } from './componentes/home-personal/home-personal.component';
 import { CitasComponent } from './componentes/citas/citas.component';
 import { AgendaComponent } from './componentes/agenda/agenda.component';
 import { NavegacionComponent } from './componentes/navegacion/navegacion.component';
+import { EquipoComponent } from './componentes/equipo/equipo.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -20,15 +28,23 @@ import { NavegacionComponent } from './componentes/navegacion/navegacion.compone
     LoginComponent,
     RegistroComponent,
     HomeUsuarioComponent,
-    AgendarCitaComponent,
-    HomePersonalComponent,
-    CitasComponent,
+    CitaComponent,
     AgendaComponent,
-    NavegacionComponent
+    NavegacionComponent,
+    EquipoComponent,
+    PerfilComponent,
+    HomePersonalComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,21 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AgendarCitaComponent } from './agendar-cita.component';
+import { CitaComponent } from './agendar-cita.component';
 
 describe('AgendarCitaComponent', () => {
-  let component: AgendarCitaComponent;
-  let fixture: ComponentFixture<AgendarCitaComponent>;
+let component: CitaComponent;
+let fixture: ComponentFixture<CitaComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [AgendarCitaComponent]
-    });
-    fixture = TestBed.createComponent(AgendarCitaComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+beforeEach(() => {
+TestBed.configureTestingModule({
+declarations: [CitaComponent]
 });
+fixture = TestBed.createComponent(CitaComponent);
+component = fixture.componentInstance;
+fixture.detectChanges();
+});
+
+it('should create', () => {
+expect(component).toBeTruthy();
+});
+});
+
