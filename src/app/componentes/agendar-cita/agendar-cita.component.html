@@ -74,15 +74,22 @@ header {
             <div class="card-body">
             <div class="entrada mb-3">
               <i class="fa fa-id-card" aria-hidden="true"></i>
-            <input class="form-control" type="number" id="id_psicologo" name="id_psicologo" placeholder="Psicologo" [(ngModel)]="citaService.cita.id_psicologo" required>
+              <select class="form-control" type="string" id="id_psicologo"  name="id_psicologo" [(ngModel)]="citaService.cita.id_psicologo" required>
+                <option disabled selected>Psicólogo:</option>
+                <option  *ngFor="let psicologo of citaService.psicologos" [value]="psicologo.id_psicologo">{{psicologo.nombre}} </option>
+              </select>
             </div>
             <div class="entrada mb-3">
             <i class="fa fa-user" aria-hidden="true"></i>
             <input class="form-control" type="number" id="id_alumno" name="id_alumno" placeholder="Número de Control" [(ngModel)]="citaService.cita.id_alumno" required>
             </div>
             <div class="entrada mb-3">
-              <i class="fa fa-user" aria-hidden="true"></i>
-            <input class="form-control" type="number" id="id_consultorio" name="id_consultorio" placeholder="Consultorio" [(ngModel)]="citaService.cita.id_consultorio" required>
+              <select class="form-control" type="string" id="tipo_consulta"  name="tipo_consulta"[(ngModel)]="citaService.cita.id_consultorio" required>
+                <option disabled selected>Consultorio:</option>
+                <option value="Psicologica">Consultorio 1</option>
+                <option value="Psicopedagogica">Consultorio 2</option>
+                <option value="Psicopedagogica">Consultorio 3</option>
+              </select>
             </div>
       
             <div class="entrada mb-3">
@@ -136,12 +143,13 @@ header {
       
         </form>
       </div>
-      
+      <hr style="width: 90%; margin-left: 5%;">
+      <h1 style="text-align: center;">Citas: </h1>
         <!--tabla-->
         <table id="agendarTable" class="table table-dark table-striped" style="margin: 20px 20px;">
           <thead>
           <tr>
-            <td>X</td>
+            <th scope="col">Id Cita</th>
             <th scope="col">Id psicologo</th>
             <td scope="col">Número de Control</td>
             <th scope="col">Consultorio</th>
@@ -155,7 +163,7 @@ header {
         </thead>
         <tbody>
           <tr *ngFor="let cita of citaService.citas">
-            <th scope="row"></th>
+            <td>{{cita.id_cita}}</td>
             <td>{{cita.id_psicologo}}</td>
             <td>{{ cita.id_alumno }}</td>
             <td>{{ cita.id_consultorio }}</td>

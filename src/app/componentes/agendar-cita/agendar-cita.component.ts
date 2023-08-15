@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CitaService } from 'src/app/services/agendar.service';
 import { Cita } from 'src/app/models/agendar-cita';
 import { NgForm } from '@angular/forms';
+import { Psicologo } from 'src/app/models/psicologos';
 
 
 @Component({
@@ -11,12 +12,30 @@ import { NgForm } from '@angular/forms';
 })
 export class CitaComponent implements OnInit{
 
+  // Define la relación entre los nombres y los valores numéricos
+
+  consultorios: { nombre: string, valor: number }[] = [
+    { nombre: 'Consultorio 1', valor: 1 },
+    { nombre: 'Consultorio 2', valor: 2 },
+    { nombre: 'Consultorio 3', valor: 3 },
+  ];
+
   constructor(public citaService: CitaService) {
   }
 
   ngOnInit(): void {
     //console.log(this.empleadoService.getEmpleados());
     this.getCitas();
+    this.getPsicologos();
+  }
+
+  getPsicologos() {
+    this.citaService.getPsicologos().subscribe(
+      res => {
+        this.citaService.psicologos = res;
+      },
+      err => console.log(err)
+    );
   }
 
   getCitas(){
@@ -34,7 +53,18 @@ export class CitaComponent implements OnInit{
 
     // Establecer el valor del campo fecha_propuesta en el objeto cita del servicio
     this.citaService.cita.fecha_propuesta = fechaPropuesta;
-  
+
+    // Buscar el objeto Psicologo correspondiente al nombre seleccionado
+    const psicologoSeleccionado = this.citaService.psicologos.find(
+      (psicologo) => psicologo.nombre === this.citaService.cita.id_psicologo
+    );
+
+      // Asignar el id_psicologo al objeto cita
+      if (psicologoSeleccionado) {
+        this.citaService.cita.id_psicologo = psicologoSeleccionado.id_psicologo;
+      }
+
+
     alert('Creando Registro');
     this.citaService.createCita(form.value).subscribe(
       res => {

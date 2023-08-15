@@ -4,52 +4,79 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
-    
-  
-<div class = "card mx-auto">
-    <div class="card-header bg-secondary text-center">
-      <h5 style="color: rgb(26, 22, 22);" >Crear Cuenta</h5>
-    </div>
-    
-    <form  id="form" action="/cargar-articulo">
-        <div class="card-body">
-            <div class="entrada mb-3">
-                <i class="fa fa-circle" aria-hidden="true"></i>
-                <input type="text" class="form-control" id="exampleInputtext"placeholder="Nombre completo">
-              </div>
-              <div class="entrada mb-3">
-                <i class="fa fa-circle" aria-hidden="true"></i>
-                <input type="text" class="form-control" id="exampleInputtext"placeholder="Número de control">
-              </div>
-        <div class="entrada mb-3 mt-3" >
-          <i class="fa fa-envelope" aria-hidden="true"></i>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="correo electronico">
-          
-        </div>
-        <div class="entrada mb-3">
-          <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-          <input type="password" class="form-control" id="pasw1"placeholder="password">
-        </div>
-        <div class="entrada mb-3">
-            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-            <input type="password" class="form-control" id="pasw2"placeholder=" confirm password">
+
+    <!--Registro ejemplo-->
+    <div class="login-container">
+      <div class="logo">Psicositas</div>
+      <hr>
+      <h2>Sign Up</h2>
+      <form #registroForm = "ngForm" (ngSubmit)="createRegistro(registroForm)">
+        <input type="hidden" [(ngModel)]="registroService.registro.id_alumno" name="id_alumno">
+        <div class="form-group">
+          <label for="nombre">Nombre(s):</label>
+          <input type="text" id="name" name="name"  required [(ngModel)]="registroService.registro.nombre" name="nombre">
+          <div *ngIf="registroForm.controls['nombre']?.invalid && (registroForm.controls['nombre']?.dirty || registroForm.controls['nombre']?.touched)">
+            <div *ngIf="registroForm.controls['nombre'].hasError('required')">El nombre es obligatorio.</div>
           </div>
-        <div class="mb-3 form-check">
+        </div>
+        <div class="form-group">
+          <label for="ape_paterno">Apellido Paterno:</label>
+          <input type="text" id="apePat" name="apePat"  required [(ngModel)]="registroService.registro.ape_paterno" name="ape_paterno">
+          <div *ngIf="registroForm.controls['ape_paterno']?.invalid && (registroForm.controls['ape_paterno']?.dirty || registroForm.controls['ape_paterno']?.touched)">
+            <div *ngIf="registroForm.controls['ape_paterno'].hasError('required')">El apellido es obligatorio.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ape_materno">Apellido Materno:</label>
+          <input type="text" id="apeMat" name="apeMat"  required [(ngModel)]="registroService.registro.ape_materno">
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono:</label>
+          <input type="text" id="telefono" name="telefono"  required [(ngModel)]="registroService.registro.telefono">
+        </div>
+        <div class="form-group">
+          <label for="correo">Correo:</label>
+          <input type="email" id="correo" name="correo"  required [(ngModel)]="registroService.registro.e_mail">
+        </div>
+        <div class="form-group">
+          <label for="password">Carrera:</label>
+          <input type="text" id="carrera" name="carrera"  required [(ngModel)]="registroService.registro.id_carrera">
+        </div>
+        <div class="form-group">
+          <label for="password">Grupo:</label>
+          <input type="text" id="grupo" name="grupo"  required [(ngModel)]="registroService.registro.grupo">
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password"  required [(ngModel)]="registroService.registro.password">
+        </div>
+        <div class="form-group">
+          <label for="password">Repetir contraseña:</label>
+          <input type="password" id="password" name="password"  required [required]="registroService.registro.password">
+        </div>
+        <div class="form-group">
+          <label for="password">Nombre de usuario:</label>
+          <input type="text" id="apePat" name="apePat"  required [(ngModel)]="registroService.registro.usuario">
+        </div>
+        <button type="submit" class="btn-dark">Crear Cuenta</button>
+        <div class="register">
+          <p>¿Ya tienes cuenta? <a href="login">Click aquí</a> para iniciar sesión</p>
+        </div> 
+        <div class="mb-3 form-check" style="text-align: left; padding: 10px 10px;">
           
          
           <label class="form-check-label" for="exampleCheck1">
             Al registrarse, aceptas nuestras condiciones de uso y políticas de privacidad. 
           </label>
-            <p style="display: inline-block;">Mostrar política</p>
-            <input type="checkbox" class="form-check-input" id="chk-politica">
+            <p style="display: inline-block; margin-left: 10px;">Mostrar política de privacidad</p>
+            <input type="checkbox" class="form-check-input" id="chk-politica" style="margin-left: 10px;">
             <p id="ocultar">Politica de uso...</p>
          
         </div>
-        <button type="submit" class="btn btn-secondary "onclick="alert('Registro completo');"routerLink="/login" style="color: black;">Registrarme</button>
-       
-    </div>
+        
       </form>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
     </html>
