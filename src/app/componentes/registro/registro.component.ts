@@ -3,7 +3,6 @@ import { RegistroService } from 'src/app/services/registro.service';
 import { Registro } from 'src/app/models/registro.model';
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -23,7 +22,14 @@ export class RegistroComponent {
                 });
   }
 
-  
+  getCarreras() {
+    this.registroService.getCarreras().subscribe(
+      res => {
+        this.registroService.carreras = res;
+      },
+      err => console.log(err)
+    );
+  }
 
   getRegistros(){
     this.registroService.getRegistros().subscribe(
@@ -34,9 +40,9 @@ export class RegistroComponent {
       err => console.log(err)
     )
   }
+  //  const {password,password2} = req.body;
 
   createRegistro(form: NgForm) {
-  
     alert('Creando Registro');
     this.registroService.createRegistro(form.value).subscribe(
       res => {
@@ -45,6 +51,7 @@ export class RegistroComponent {
       },
       err => console.log(err)
     );
+  
   }
 
   deleteRegistro(id: number) {

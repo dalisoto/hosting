@@ -1,24 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { AgendaService } from 'src/app/services/agenda.service';
 import { Consultorio } from 'src/app/models/consultorio';
 import { NgForm } from '@angular/forms';
-import { ConsultorioService } from 'src/app/services/citas.service';
-@Component({
-  selector: 'app-citas',
-  templateUrl: './citas.component.html',
-  styleUrls: ['./citas.component.css']
-})
-export class CitasComponent implements OnInit{
-  constructor (public consultorioService:ConsultorioService) {}
 
-  
+
+@Component({
+  selector: 'app-agenda-psico',
+  templateUrl: './agenda-psico.component.html',
+  styleUrls: ['./agenda-psico.component.css']
+})
+export class AgendaPsicoComponent implements OnInit {
+  constructor (public agendaService:AgendaService) {}
+
   ngOnInit(): void {
     this.getConsultorio();
   }
 
   getConsultorio(){
-    this.consultorioService.getCosultorio().subscribe(
+    this.agendaService.getCosultorio().subscribe(
       res=>{
-        this.consultorioService.consultorios = res;
+        this.agendaService.consultorios = res;
         console.log(res);
       },
 
@@ -28,7 +29,7 @@ export class CitasComponent implements OnInit{
 
   updateConsultorios(form:NgForm){
     alert('Actualizando');
-      this.consultorioService.editConsultorio(form.value).subscribe(
+      this.agendaService.editConsultorio(form.value).subscribe(
         res=> {
           this.getConsultorio();
           console.log(res);
@@ -39,7 +40,7 @@ export class CitasComponent implements OnInit{
   }
 
   createConsultorio(form:NgForm){
-    this.consultorioService.createConsultorio(form.value).subscribe(
+    this.agendaService.createConsultorio(form.value).subscribe(
       res=> {
         this.getConsultorio();
         form.reset();
@@ -52,7 +53,7 @@ export class CitasComponent implements OnInit{
     const resp = confirm('Quieres eliminarlo?');
     console.log('Eliminando '+id_consultorio);
     if(resp){
-      this.consultorioService.deleteConsultorio(id_consultorio).subscribe(
+      this.agendaService.deleteConsultorio(id_consultorio).subscribe(
         res=>{
           this.getConsultorio();
         },
@@ -62,11 +63,11 @@ export class CitasComponent implements OnInit{
   }
 
   editConsultorio(consultorio:Consultorio){
-    this.consultorioService.consultorio = consultorio;
+    this.agendaService.consultorio = consultorio;
   }
 
   formReset(form:NgForm){
-    this.consultorioService.consultorio=form.value;
+    this.agendaService.consultorio=form.value;
     form.reset();
   }
 }

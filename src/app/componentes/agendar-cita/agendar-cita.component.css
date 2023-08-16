@@ -7,16 +7,21 @@ mat-form-field {
   input.mat-input-element {
     width: 10%;
   }
-
+  mat-datepicker-toggle{
+    position: relative;
+    top: -45px;
+    left: 350px;
+    
+     }
   /* Personalizar los colores del mat-datepicker-toggle */
 .mat-datepicker-toggle {
-    color: #fff;
-    background-color: #ff0000; /* Color de fondo */
+    color: #000000;
+     /* Color de fondo */
   }
   
   /* Personalizar el color del texto seleccionado en el datepicker */
   .mat-calendar .mat-calendar-table .mat-calendar-body-cell.mat-selected {
-    background-color: #ff0000; /* Color de fondo */
+     /* Color de fondo */
     color: #fff; /* Color del texto */
   }
   
@@ -25,6 +30,10 @@ mat-form-field {
     color: #000; /* Color del texto */
   }
   
+  h5{
+
+    color:black;
+  }
 
 .entrada{
    position: relative;
@@ -52,7 +61,7 @@ mat-form-field {
    
    }
    button{
-   width: 50;
+   width: 100%;
    }
    .libro{
    position: relative;
@@ -90,8 +99,9 @@ mat-form-field {
      padding: auto;
      
    
-   
-   }
+    
+   } 
+  
    button{
       width: 50;
    }
@@ -281,6 +291,7 @@ mat-form-field {
       background-position: 0 0, 10px 10px;
       overflow: hidden;
   }
+ 
   
   .knowledge__container{
       display: grid;

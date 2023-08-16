@@ -1,4 +1,3 @@
-// login.component.ts
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
@@ -22,9 +21,16 @@ export class LoginComponent {
     this.authService.login(this.usuario, this.password)
       .subscribe(
         (response: any) => {
-          // Si la autenticación es exitosa, redirigimos al usuario al componente "agendar-cita"
-          this.router.navigate(['/agendar-cita']);
-          alert('Inicio de sesión exitoso')
+          if (response.message === "Inicio de sesión exitoso como alumno") {
+            // Si el usuario es alumno, redirigir a la página de inicio de alumno
+            this.router.navigate(['/agendar-cita']);
+          } else if (response.message === "Inicio de sesión exitoso como psicólogo") {
+            // Si el usuario es psicólogo, redirigir a la página de inicio de psicólogo
+            this.router.navigate(['/home-personal']);
+          } else {
+            // En caso de un mensaje desconocido, redirigir a una página de error o mostrar un mensaje
+            console.error('Mensaje de inicio de sesión desconocido', response.message);
+          }
         },
         (error: any) => {
           // Manejar errores de autenticación aquí (credenciales incorrectas, etc.).

@@ -1,123 +1,197 @@
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
     <style>
-header {
-            background-color: #f2f2f2;
-            padding: 10px;
-        }
-.bienv{
-    margin: 10px 10px;
-}
-
-
+      header {
+        background-color: #f2f2f2;
+        padding: 10px;
+      }
+      .bienv {
+        margin: 10px 10px;
+      }
     </style>
-    <link rel="shortcut icon" href="../../../assets/favicon.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="../../../assets/favicon.png"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="agendar-cita.component.css" />
+
+    <meta name="theme-color" content="#2091F9" />
+
+    <meta name="title" content="Psicositas" />
+    <meta
+      name="description"
+      content="Hola, soy una descripción que verás cuando busques algo de mi temática en Google."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alexcgdesign.github.io" />
+    <meta property="og:title" content="Psicositas" />
+    <meta
+      property="og:description"
+      content="Hola, soy una descripción que verás cuando busques algo de mi temática en Google."
+    />
+    <meta
+      property="og:image"
+      content="https://alexcgdesign.github.io/images/css.jpg"
+    />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.jordanalex.com/" />
+    <meta property="twitter:title" content="PSicositas" />
+    <meta
+      property="twitter:description"
+      content="Hola, soy una descripción que verás cuando busques algo de mi temática en Google."
+    />
+  </head>
+
+  <body>
    
-    <link rel="stylesheet" href="agendar-cita.component.css">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="javascript:void(0)">Psicositas</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href=" ">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="equipo">Equipo</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-    <meta name="theme-color" content="#2091F9">
-
-    <meta name="title" content="Psicositas">
-    <meta name="description"
-        content="Hola, soy una descripción que verás cuando busques algo de mi temática en Google.">
-
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://alexcgdesign.github.io">
-    <meta property="og:title" content="Psicositas">
-    <meta property="og:description"
-        content="Hola, soy una descripción que verás cuando busques algo de mi temática en Google.">
-    <meta property="og:image" content="https://alexcgdesign.github.io/images/css.jpg">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.jordanalex.com/">
-    <meta property="twitter:title" content="PSicositas">
-    <meta property="twitter:description"
-        content="Hola, soy una descripción que verás cuando busques algo de mi temática en Google.">
    
-</head>
+    <h1 class="bienv" style="text-align: center;">Bienvenido(a)</h1>
 
-<body>
+    <div class="card mx-auto" style="background-color: #bfbfbf">
+      <div class="card-body" style="background-color: #bfbfbf">
+      <div class="card-header text-center">
+        <h1 style="color: rgb(37, 33, 33)">Solicitud de cita</h1>
+      </div>
+      </div>
+      <form #agendarForm="ngForm" (ngSubmit)="createCita(agendarForm)">
+        <!--<ng-container *ngIf=""> -->
+        <input
+          name="id_cita"
+          [(ngModel)]="citaService.cita.id_cita"
+          type="hidden"
+        />
 
-    <header>
-        <div class="navbars">
-            <h2 href="menu-citas-alumno">Psicositas</h2>
-            <a href="agendar-cita">Inicio</a>
-            <a href="equipo">Equipo</a>
-            
-            <a href="agendar-cita">Contacto</a>
-            <div class="user-profile">
-                <a href="perfil"><i class="fas fa-user"></i></a>
-            </div>
-        </div>
-    </header>
-    <h1 class="bienv">Bienvenido(a), [Nombre de usuario]</h1>
-
-    <div class="card mx-auto">
-        <div class="card-header text-center">
-          <h5 style="color: rgb(37, 33, 33);" >Solicitud de cita</h5>
-        </div>
-      
-        <form #agendarForm = "ngForm" (ngSubmit)="createCita(agendarForm)" >
-          <!--<ng-container *ngIf=""> -->
-            <input name="id_cita"
-            [(ngModel)]="citaService.cita.id_cita"
-            type="hidden"
-            > 
-      
-            <div class="card-body">
-            <div class="entrada mb-3">
-              <i class="fa fa-id-card" aria-hidden="true"></i>
-              <select class="form-control" type="string" id="id_psicologo"  name="id_psicologo" [(ngModel)]="citaService.cita.id_psicologo" required>
-                <option disabled selected>Psicólogo:</option>
-                <option  *ngFor="let psicologo of citaService.psicologos" [value]="psicologo.id_psicologo">{{psicologo.nombre}} </option>
-              </select>
-            </div>
-            <div class="entrada mb-3">
+        <div class="card-body" style="background-color: #bfbfbf">
+          <h3>Psicologo:</h3>
+          <div class="entrada mb-3">
+            <i class="fa fa-id-card" aria-hidden="true"></i>
+            <select class="form-control" type="string" id="id_psicologo"  name="id_psicologo" [(ngModel)]="citaService.cita.id_psicologo" required>
+              <option disabled selected>Psicólogo:</option>
+              <option  *ngFor="let psicologo of citaService.psicologos" [value]="psicologo.id_psicologo">{{psicologo.nombre}} </option>
+            </select>
+          </div>
+          <h3>Número De Control:</h3>
+          <div class="entrada mb-3">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <input class="form-control" type="number" id="id_alumno" name="id_alumno" placeholder="Número de Control" [(ngModel)]="citaService.cita.id_alumno" required>
-            </div>
-            <div class="entrada mb-3">
-              <select class="form-control" type="string" id="tipo_consulta"  name="tipo_consulta"[(ngModel)]="citaService.cita.id_consultorio" required>
-                <option disabled selected>Consultorio:</option>
-                <option value="Psicologica">Consultorio 1</option>
-                <option value="Psicopedagogica">Consultorio 2</option>
-                <option value="Psicopedagogica">Consultorio 3</option>
-              </select>
-            </div>
-      
-            <div class="entrada mb-3">
-              <i class="fa fa-calendar" aria-hidden="true"></i>  
-            <select class="form-control" type="string" id="tipo_consulta"  name="tipo_consulta"[(ngModel)]="citaService.cita.tipo_consulta" required>
+            <input
+              class="form-control"
+              type="number"
+              id="id_alumno"
+              name="id_alumno"
+              placeholder="Número de Control"
+              [(ngModel)]="citaService.cita.id_alumno"
+              required
+            />
+          </div>
+          <h3>Consultorio:</h3>
+          <div class="entrada mb-3">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input
+              class="form-control"
+              type="number"
+              id="id_consultorio"
+              name="id_consultorio"
+              placeholder="Consultorio"
+              [(ngModel)]="citaService.cita.id_consultorio"
+              required
+            />
+          </div>
+          <h3>Tipo de Cita:</h3>
+          <div class="entrada mb-3">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <select
+              class="form-control"
+              type="string"
+              id="tipo_consulta"
+              name="tipo_consulta"
+              [(ngModel)]="citaService.cita.tipo_consulta"
+              required
+            >
               <option disabled selected>Tipo de Consulta</option>
               <option value="Psicologica">Psicologica</option>
               <option value="Psicopedagogica">Psicopedagogica</option>
             </select>
+          </div>
+          <h3>Motivo:</h3>
+          <div class="entrada mb-3">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <input
+              class="form-control"
+              type="string"
+              id="motivo"
+              name="motivo"
+              placeholder="motivo"
+              [(ngModel)]="citaService.cita.motivo"
+              required
+            />
+          </div>
+          <h3>Fecha:</h3>
+          <div class="entrada mb-3">
+          <!-- <mat-form-field> -->
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <input
+              class="form-control"
+              id="fecha_propuesta"
+              name="fecha_propuesta"
+              placeholder="Fecha Propuesta"
+              matInput
+              [matDatepicker]="datepicker"
+              [(ngModel)]="citaService.cita.fecha_propuesta"
+              required
+            />
+             <mat-datepicker-toggle
+              matSuffix
+              [for]="datepicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+         <!-- </mat-form-field> -->
             </div>
-      
-            <div class="entrada mb-3">
-              <i class="fa fa-user" aria-hidden="true"></i>
-            <input class="form-control" type="string" id="motivo" name="motivo" placeholder="motivo" [(ngModel)]="citaService.cita.motivo" required>
-            </div>
-            
-              <mat-form-field>
-                <mat-label>Fecha Propuesta</mat-label>
-                <input matInput [matDatepicker]="datepicker" name="fecha_propuesta" [(ngModel)]="citaService.cita.fecha_propuesta" required>
-                <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-                <mat-datepicker #datepicker></mat-datepicker>
-              </mat-form-field>
-   
-            <div class="entrada mb-3">
-              <i class="fa fa-hourglass" aria-hidden="true"></i>
-            <select class="form-control" type="number" id="hora_propuesta" name="hora_propuesta" [(ngModel)]="citaService.cita.hora_propuesta" required>
-              <option disabled selected>Hora</option> 
-              <option value="8:00-8:50">8:00-8:50</option>
+            <h3>Hora:</h3>
+          <div class="entrada mb-3">
+            <i class="fa fa-hourglass" aria-hidden="true"></i>
+            <select
+              class="form-control"
+              type="number"
+              id="hora_propuesta"
+              name="hora_propuesta"
+              [(ngModel)]="citaService.cita.hora_propuesta"
+              required
+            >
+              <option value="Hora" disabled selected>Hora</option>
+              <option value="8:00-8:50" >8:00-8:50</option>
               <option value="9:00-9:50">9:00-9:50</option>
               <option value="10:00-10:50">10:00-10:50</option>
               <option value="11:00-11:50">11:00-11:50</option>
@@ -127,103 +201,129 @@ header {
               <option value="15:10-16:00">15:10-16:00</option>
             </select>
           </div>
-      
+          <h3>Estatus:</h3>
           <div class="entrada mb-3">
-            <i class="fa fa-calendar" aria-hidden="true"></i>  
-          <select class="form-control" type="string" id="estatus" name="estatus"[(ngModel)]="citaService.cita.estatus" required>
-            <option disabled selected>Estatus</option> 
-            <option value="Solicitud">Solicitud</option>
-          </select>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <select
+              class="form-control"
+              type="string"
+              id="estatus"
+              name="estatus"
+              [(ngModel)]="citaService.cita.estatus"
+              required
+            >
+              <option disabled selected>Estatus</option>
+              <option value="Solicitud">Solicitud</option>
+            </select>
           </div>
-      
-            </div>
-      <!--</ng-container> -->
-            
-            <button class="btn btn-dark" type ="submit">Agregar</button>
-      
-        </form>
+        </div>
+        <!--</ng-container> -->
+        <div class="entrada mb-3">
+        <button class="btn btn-dark" type="submit">Agregar</button>
       </div>
-      <hr style="width: 90%; margin-left: 5%;">
-      <h1 style="text-align: center;">Citas: </h1>
-        <!--tabla-->
-        <table id="agendarTable" class="table table-dark table-striped" style="margin: 20px 20px;">
-          <thead>
-          <tr>
-            <th scope="col">Id Cita</th>
-            <th scope="col">Id psicologo</th>
-            <td scope="col">Número de Control</td>
-            <th scope="col">Consultorio</th>
-            <th scope="col">Tipo de Consulta</th>
-            <th scope="col">Motivo</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Hora</th>
-            <th scope="col">Estado</th>
-            <th>Opciones</th>
-          </tr >
-        </thead>
-        <tbody>
-          <tr *ngFor="let cita of citaService.citas">
-            <td>{{cita.id_cita}}</td>
-            <td>{{cita.id_psicologo}}</td>
-            <td>{{ cita.id_alumno }}</td>
-            <td>{{ cita.id_consultorio }}</td>
-            <td>{{ cita.tipo_consulta }}</td>
-            <td>{{ cita.motivo }}</td>
-             <!-- Formatear la fecha para mostrar solo la parte de la fecha -->
-            <td>{{ cita.fecha_propuesta | slice:0:10 }}</td>
-            <td>{{ cita.hora_propuesta }}</td>
-            <td>{{ cita.estatus}}</td>
-            <td>
-              <button class="btn btn-danger" (click)="deleteCita(cita.id_cita)">Cancelar</button>
-      
-            </td>
-          </tr>
-        </tbody>
-        </table>
+      </form>
+    </div>
 
+    <!--tabla-->
+    <div class="card-body" style="background-color: #ffffff">
+      <div class="card-header text-center">
+        <h1 style="color: rgb(37, 33, 33)">__________________________________________</h1>
+      </div>
+      </div>
+    <div class="card-body" style="background-color: #fffdfd">
+      <div class="card-header text-center">
+        <h1 style="color: rgb(37, 33, 33)">Citas</h1>
+      </div>
+      </div>
+    <table
+      id="agendarTable"
+      class="table table-dark table-striped"
+      style="margin: 20px 20px"
+    >
+      <thead>
+        <tr>
+          <td>X</td>
+          <th scope="col">Id psicologo</th>
+          <td scope="col">Número de Control</td>
+          <th scope="col">Consultorio</th>
+          <th scope="col">Tipo de Consulta</th>
+          <th scope="col">Motivo</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Hora</th>
+          <th scope="col">Estado</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citaService.citas">
+          <th scope="row"></th>
+          <td>{{ cita.id_psicologo }}</td>
+          <td>{{ cita.id_alumno }}</td>
+          <td>{{ cita.id_consultorio }}</td>
+          <td>{{ cita.tipo_consulta }}</td>
+          <td>{{ cita.motivo }}</td>
+          <!-- Formatear la fecha para mostrar solo la parte de la fecha -->
+          <td>{{ cita.fecha_propuesta | slice : 0 : 10 }}</td>
+          <td>{{ cita.hora_propuesta }}</td>
+          <td>{{ cita.estatus }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteCita(cita.id_cita)">
+              Cancelar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-        <!--Tablas extra-->
-        
-        
+    <!--Tablas extra-->
 
     <footer class="footer">
-        <section class="footer__container container">
-            <nav class="nav nav--footer">
-                <h2 class="footer__title">Psicositas</h2>
+      <section class="footer__container container">
+        <nav class="nav nav--footer">
+          <h2 class="footer__title">Psicositas</h2>
 
-                <ul class="nav__link nav__link--footer">
-                    <li class="nav__items">
-                        <a href="#" class="nav__links">Inicio</a>
-                    </li>
-                    <li class="nav__items">
-                        <a href="#" class="nav__links">Acerca de</a>
-                    </li>
-                    <li class="nav__items">
-                        <a href="#" class="nav__links">Contacto</a>
-                    </li>
-                    <li class="nav__items">
-                        <a href="#" class="nav__links">Otro</a>
-                    </li>
-                </ul>
-            </nav>
+          <ul class="nav__link nav__link--footer">
+            <li class="nav__items">
+              <a href="#" class="nav__links">Inicio</a>
+            </li>
+            <li class="nav__items">
+              <a href="#" class="nav__links">Acerca de</a>
+            </li>
+            <li class="nav__items">
+              <a href="#" class="nav__links">Contacto</a>
+            </li>
+            <li class="nav__items">
+              <a href="#" class="nav__links">Otro</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
 
-           
-        </section>
+      <section class="footer__copy container">
+        <div class="footer__social">
+          <a href="#" class="footer__icons"
+            ><img src="../../../assets/facebook.svg" class="footer__img"
+          /></a>
+          <a href="#" class="footer__icons"
+            ><img src="../../../assets/twitter.svg" class="footer__img"
+          /></a>
+          <a href="#" class="footer__icons"
+            ><img src="../../../assets/youtube.svg" class="footer__img"
+          /></a>
+        </div>
 
-        <section class="footer__copy container">
-            <div class="footer__social">
-                <a href="#" class="footer__icons"><img src="../../../assets/facebook.svg" class="footer__img"></a>
-                <a href="#" class="footer__icons"><img src="../../../assets/twitter.svg" class="footer__img"></a>
-                <a href="#" class="footer__icons"><img src="../../../assets/youtube.svg" class="footer__img"></a>
-            </div>
-
-            <h3 class="footer__copyright">Derechos reservados &copy; Psicositas Inc.</h3>
-        </section>
+        <h3 class="footer__copyright">
+          Derechos reservados &copy; Psicositas Inc.
+        </h3>
+      </section>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
     <script src="./js/slider.js"></script>
     <script src="./js/questions.js"></script>
     <script src="./js/menu.js"></script>
-</body>
-
+  </body>
 </html>

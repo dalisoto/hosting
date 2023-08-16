@@ -1,37 +1,98 @@
 <html>
   <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
   </head>
-<body >
-  
-   
+  <body>
+    <!-- Main Content -->
+	<div class="container-fluid">
+		<div class="row main-content  bg-secondary  text-center">
+			<div class="col-md-4 text-center company__info  bg-secondary " >
+				<img src="https://tse4.mm.bing.net/th?id=OIP.5X-xS1yVy-p2vUfnyNHw3QHaEK&pid=Api&P=0&h=180" alt="...">
+				<h4 class="company_title">PSICOSITAS</h4>
+			</div>
+			<div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+				<div class="container-fluid">
+					<div class="row">
+						<h2>Iniciar sesión </h2>
+					</div>
+					<div class="row">
+						<form form (submit)="onLoginSubmit()" class="form-group">
+							<div class="row">
+								<input type="text" name="noControl" id="noControl" class="form__input" placeholder="Número de control"  [(ngModel)]="usuario"
+                required>
+							</div>
+							<div class="row">
+								<!-- <span class="fa fa-lock"></span> -->
+								<input type="password" name="password" id="password" class="form__input" placeholder="Contraseña"  [(ngModel)]="password"
+                required>
+							</div>
+							<div class="row">
+                <input type="checkbox" name="exampleCheck1" id="exampleCheck1">
+                <label  for="exampleCheck1" text >Check me out</label>
+              </div>
+				<div class="row">
+                <button type="submit" class="btn btn-secondary float: right;" value="submit" style="color: rgb(41, 40, 40);" >Ingresar</button>
+							</div>
+						</form>
+					</div>
+          
+					<div class="row">
+						<p>¿No tienes una cuenta? <a href="/registro">Registrate</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- Login ejemplo
 
+    <!-- login.component.html -->
 
+    <!-- <div class="login-container">
+      <div class="logo">Psicositas</div>
+      <hr />
+      <h2>Login</h2>
+      <form (submit)="onLoginSubmit()">
+        <div class="form-group">
+          <label for="usuario">Usuario:</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            [(ngModel)]="usuario"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <input
+            type="password"
+            id="contraseña"
+            name="contraseña"
+            [(ngModel)]="password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn-dark">Iniciar Sesión</button>
+        <div class="register">
+          <p>¿No tienes cuenta? <a href="registro">Click aquí</a></p>
+        </div>
+      </form>
+    </div> --> 
 
-        <!--Login ejemplo-->
-
-        <!-- login.component.html -->
-
-<div class="login-container">
-  <div class="logo">Psicositas</div>
-  <hr>
-  <h2>Login</h2>
-  <form (submit)="onLoginSubmit()">
-    <div class="form-group">
-      <label for="usuario">Usuario:</label>
-      <input type="text" id="username" name="username" [(ngModel)]="usuario" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Contraseña:</label>
-      <input type="password" id="contraseña" name="contraseña" [(ngModel)]="password" required>
-    </div>
-    <button type="submit" class="btn-dark">Iniciar Sesión</button>
-    <div class="register">
-      <p>¿No tienes cuenta? <a href="registro">Click aquí</a></p>
-    </div> 
-  </form>
-</div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-      </body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
+
+<body>
+	
+	
+</body>

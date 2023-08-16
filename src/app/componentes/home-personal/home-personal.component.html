@@ -45,21 +45,30 @@ header {
 
 <body>
 
-    <header>
-        <div class="navbars">
-            <h2 href="menu-citas-alumno">Psicositas</h2>
-            <a href="agendar-cita">Inicio</a>
-            <a href="equipo">Equipo</a>
-            
-            <a href="agendar-cita">Contacto</a>
-            <div class="user-profile">
-                <a href="perfil"><i class="fas fa-user"></i></a>
-            </div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="javascript:void(0)">Psicositas</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mynavbar">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href=" ">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="equipo">Equipo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="citas">Consultorios</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </header>
-    <h1 class="bienv">Bienvenido(a), [Nombre de usuario]</h1>
+      </nav>
+    <h1 class="bienv" style="text-align: center;">Bienvenido(a)</h1>
 
-    <h2>Citas Solicitadas</h2>
+    <h2 style="text-align: center;" >Citas Solicitadas</h2>
 
 
     <table id="agendarTable" class="table table-dark table-striped" style="margin: 20px 20px;">
@@ -89,7 +98,7 @@ header {
             <td>{{ cita.hora_propuesta }}</td>
             <td>{{ cita.estatus}}</td>
             <td>
-                <button class="btn btn-success" (click)="validarCita(cita)">Validar</button>
+                <button class="btn btn-light" (click)="validarCita(cita)">Validar</button>
                 <button class="btn btn-danger" (click)="cancelarCita(cita)">Cancelar</button>
       
             </td>

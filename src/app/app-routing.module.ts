@@ -11,10 +11,13 @@ import { AgendaComponent } from './componentes/agenda/agenda.component';
 import { CitasComponent } from './componentes/citas/citas.component';
 import { EquipoComponent } from './componentes/equipo/equipo.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { AgendaPsicoComponent } from './componentes/agenda-psico/agenda-psico.component';
 
 const routes: Routes = [
   {path:'home', component: HomeComponent},
+ // {path: 'consultorio',component:AgendaPsicoComponent},
   {path:'', component: HomeComponent},
+  {path:'consultorio',component:AgendaPsicoComponent},
   {path:'registro',component:RegistroComponent},
   {path:'agendar-cita',component:CitaComponent},
   {path: 'login',component:LoginComponent},

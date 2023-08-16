@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Cita } from "src/app/models/agendar-cita";
 import {HttpClient} from '@angular/common/http';
 import { Psicologo } from "../models/psicologos";
+import { Carrera } from "../models/carreras";
 
 
 @Injectable({
@@ -13,7 +14,7 @@ import { Psicologo } from "../models/psicologos";
     URL_API= 'http://localhost:3000/citas'; //<-----
   
     public cita:Cita=
-  {id_cita:'',id_psicologo:'',id_alumno:'',id_consultorio:'',tipo_consulta:'',motivo:'',fecha_propuesta:'',hora_propuesta:'',estatus:''};
+  {id_cita:'',id_psicologo:'',id_alumno:'',id_consultorio:'',tipo_consulta:'',motivo:'',fecha_propuesta:'',hora_propuesta:'',estatus:'solicitud'};
 
   public psicologo:Psicologo=
   {id_psicologo: '',
@@ -22,9 +23,13 @@ import { Psicologo } from "../models/psicologos";
     ape_materno: '',
     especialidad: '',
     e_mail: ''};
+    public carrera:Carrera=
+    {id_carrera: '',
+      carrera: '',
+      area: ''};
 
     psicologos: Psicologo[]=[];
-
+    carreras: Carrera[]=[];
     citas: Cita[]=[];
   
     constructor(private http:HttpClient){
@@ -53,6 +58,9 @@ import { Psicologo } from "../models/psicologos";
       }
       getPsicologos(){
         return this.http.get<Psicologo[]>('http://localhost:3000/psicologos')
+      }
+      getCarreras(){
+        return this.http.get<Psicologo[]>('http://localhost:3000/carreras')
       }
       
       updateEstatusCita(id_cita: number, estatus: string) {

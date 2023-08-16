@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Registro } from "src/app/models/registro.model";
 import {HttpClient} from '@angular/common/http';
+import { Carrera } from "../models/carreras";
 
 
 @Injectable({
@@ -20,11 +21,16 @@ import {HttpClient} from '@angular/common/http';
     e_mail: '',
     id_carrera: '',
     grupo: '',
-    password: '',
-    usuario: ''};
+    password: ''
+   
+   };
+   public carrera:Carrera=
+   {id_carrera: '',
+     carrera: '',
+     area: ''};
 
     registros: Registro[]=[];
-  
+    carreras: Carrera[]=[];
     constructor(private http:HttpClient){
 
     };
@@ -32,7 +38,9 @@ import {HttpClient} from '@angular/common/http';
     createRegistro(cita: Registro) { 
       return this.http.post(this.URL_API,this.registro);
     }
-  
+    getCarreras(){
+      return this.http.get<Carrera[]>('http://localhost:3000/carreras')
+    }
     deleteRegistro(id_cita: number) {
       return this.http.delete(this.URL_API + '/' + id_cita);
     }

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CitasComponent } from './citas.component';
+
 
 describe('CitasComponent', () => {
   let component: CitasComponent;
@@ -18,4 +18,4 @@ describe('CitasComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+}); 
