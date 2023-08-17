@@ -23,6 +23,7 @@ import { Carrera } from "../models/carreras";
     ape_materno: '',
     especialidad: '',
     e_mail: ''};
+
     public carrera:Carrera=
     {id_carrera: '',
       carrera: '',
@@ -60,7 +61,7 @@ import { Carrera } from "../models/carreras";
         return this.http.get<Psicologo[]>('http://localhost:3000/psicologos')
       }
       getCarreras(){
-        return this.http.get<Psicologo[]>('http://localhost:3000/carreras')
+        return this.http.get<Carrera[]>('http://localhost:3000/carreras')
       }
       
       updateEstatusCita(id_cita: number, estatus: string) {

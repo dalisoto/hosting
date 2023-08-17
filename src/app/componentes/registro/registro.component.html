@@ -104,10 +104,15 @@
                 </div>
                 <div class="row">
                   <!-- <span class="fa fa-lock"></span> -->
-                  <select class="form-control" type="string" id="id_psicologo"  name="id_psicologo" [(ngModel)]="registroService.registro.id_carrera" required>
-                    <option disabled selected>Carreras:</option>
-                    <option  *ngFor="let carreras of registroService.carreras" [value]="carreras.id_carrera">{{carreras.carrera}} </option>
-                  </select>
+                  <input
+                    type="text"
+                    class="form-control"
+                    style="margin: 5px"
+                    name="grupo"
+                    id="grupo"
+                    placeholder="Carrera"
+                    required [(ngModel)]="registroService.registro.id_carrera"
+                  >
                 </div>
                 <div class="row">
                   <!-- <span class="fa fa-lock"></span> -->
@@ -122,14 +127,13 @@
                   >
                 </div>
                 <div class="row">
-                  <!-- <span class="fa fa-lock"></span> -->
                   <input
                     type="password"
                     class="form-control"
                     style="margin: 5px"
-                    name="password1"
-                    id="password1"
-                    placeholder="contraseña"
+                    name="password"
+                    id="password"
+                    placeholder="password"
                     required [(ngModel)]="registroService.registro.password"
                   >
                 </div>
@@ -142,8 +146,11 @@
                     name="password2"
                     id="password2"
                     placeholder=" confirm password"
-                    
+                    required [(ngModel)]="repetirPassword"
                   >
+                  <div *ngIf="registroForm.value.password !== repetirPassword" class="text-danger">
+                    Las contraseñas no coinciden. Por favor, asegúrate de que las contraseñas sean iguales.
+                  </div>
                 </div>
   
                 <div class="mb-3 form-check">

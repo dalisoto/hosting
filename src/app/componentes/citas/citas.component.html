@@ -93,11 +93,20 @@
                             <h3>Id Consultorio</h3>
                             <select class="form-select" placeholder="id_consultorio" id="dTutoria" name="id_consultorio" [(ngModel)]="consultorioService.consultorio.id_consultorio" placeholder="consultorio">
                                 <option value=""></option>
-                                <option value="1000">1000</option>
-                                <option value="2000">2000</option>
-                                <option value="3000">3000</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
                             </select>
                             </div>
+                            <div class="entrada mb-3 mt-3">
+                              <h3>ID Psicologo</h3>
+                              <select class="form-select" placeholder="id_Psicologo" id="nomPsico" name="nomPsico" [(ngModel)]="consultorioService.consultorio.nomPsico" placeholder="ID Psicologo">
+                                  <option value=""></option>
+                                  <option value="1000">1000</option>
+                                  <option value="2000">2000</option>
+                                  <option value="3000">3000</option>
+                              </select>
+                              </div>
 
             <div class="entrada mb-3 mt-3">
                     <h3>Nombre Consultorio</h3>
@@ -152,6 +161,7 @@
 <thead>
 <tr>   
 <th>ID Consultorio</th>
+<th>ID Psicologo </th>
 <th>Nombre del Consultorio </th>
 <th>Edificio</th>
 <th>Fecha Propuesta</th>
@@ -161,8 +171,9 @@
 </thead>
 
 <tbody>
-<tr *ngFor="let item of consultorioService.consultorios" class="table-secondary">
+<tr *ngFor="let item of consultorioService.consultorios" class="table-dark">
     <td>{{ item.id_consultorio }}</td>
+    <td>{{ item.nomPsico }}</td>
      <td>{{ item.nombre_consultorio }}</td>
     <td>{{ item.ubicacion }}</td>
     <td>{{ item.Fecha }}</td>

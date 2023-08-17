@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   export class ConsultorioService {
     public consultorio:Consultorio={
       id_consultorio: 0,
+      nomPsico:'',
       nombre_consultorio: '',
       ubicacion: 'Edificio D',
       Fecha: new Date(),
