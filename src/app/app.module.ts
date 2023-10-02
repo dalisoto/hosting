@@ -20,6 +20,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AgendaPsicoComponent } from './componentes/agenda-psico/agenda-psico.component';
+import { GeoComponent } from './componentes/geo/geo.component';
 
 
 
@@ -37,7 +38,8 @@ import { AgendaPsicoComponent } from './componentes/agenda-psico/agenda-psico.co
     PerfilComponent,
     HomePersonalComponent,
     AgendaPsicoComponent,
-    CitasComponent
+    CitasComponent,
+    GeoComponent
   ],
   imports: [
     BrowserModule,
